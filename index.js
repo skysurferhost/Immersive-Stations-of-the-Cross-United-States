@@ -1,4 +1,3 @@
-// SKY SURFER: replaced panorama cache revision
 /*
  * Copyright 2016 Google Inc. All rights reserved.
  *
@@ -78,41 +77,12 @@
   // Initialize viewer.
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
-  // SKY_SURFER_LANDSCAPE_VIEWPORT_REFRESH_V1
-  var ssViewportRefreshTimer = null;
-  function ssRefreshPanoramaViewport() {
-    if (ssViewportRefreshTimer) {
-      clearTimeout(ssViewportRefreshTimer);
-      ssViewportRefreshTimer = null;
-    }
-
-    requestAnimationFrame(function() {
-      if (viewer && typeof viewer.updateSize === 'function') viewer.updateSize();
-      requestAnimationFrame(function() {
-        if (viewer && typeof viewer.updateSize === 'function') viewer.updateSize();
-      });
-    });
-
-    ssViewportRefreshTimer = setTimeout(function() {
-      ssViewportRefreshTimer = null;
-      if (viewer && typeof viewer.updateSize === 'function') viewer.updateSize();
-    }, 320);
-  }
-
-  window.addEventListener('orientationchange', ssRefreshPanoramaViewport);
-  window.addEventListener('resize', ssRefreshPanoramaViewport);
-  document.addEventListener('fullscreenchange', ssRefreshPanoramaViewport);
-  document.addEventListener('webkitfullscreenchange', ssRefreshPanoramaViewport);
-  if (window.visualViewport && window.visualViewport.addEventListener) {
-    window.visualViewport.addEventListener('resize', ssRefreshPanoramaViewport);
-  }
-
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
     var urlPrefix = "tiles";
     var source = Marzipano.ImageUrlSource.fromString(
-      urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg" + (data.skySurferTilesVersion ? "?sspanorama=" + encodeURIComponent(data.skySurferTilesVersion) : ""),
-      { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" + (data.skySurferTilesVersion ? "?sspanorama=" + encodeURIComponent(data.skySurferTilesVersion) : "") });
+      urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
+      { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
     var geometry = new Marzipano.CubeGeometry(data.levels);
 
     var limiter = Marzipano.RectilinearView.limit.traditional((data.faceSize) * 2.5, 100*Math.PI/180, 120*Math.PI/180);
