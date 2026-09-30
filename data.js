@@ -708,7 +708,7 @@ var APP_DATA = {
           "text": "<p dir=\"auto\" style=\"margin:0;\">So the soldiers came and broke the legs of the first and then of the other one who was crucified with Jesus. But when they came to Jesus and saw that he was already dead, they did not break his legs, but one soldier thrust his lance into his side, and immediately blood and water flowed out. After this, Joseph of Arimathea, secretly a disciple of Jesus for fear of the Jews, asked Pilate if he could remove the body of Jesus. And Pilate permitted it. So he came and took his body. Nicodemus, the one who had first come to him at night, also came bringing a mixture of myrrh and aloes weighing about one hundred pounds.<br>(John 19:32-34, 38-39)</p>"
         }
       ],
-      "skySurferTilesVersion": "munhochw-1rwg6x"
+      "skySurferTilesVersion": "muniooaj-b9s6dt"
     },
     {
       "id": "13-14-jesus-is-laid-in-the-tomb",
